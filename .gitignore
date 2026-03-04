@@ -1,0 +1,7 @@
+vgcore.*
+compile_commands.json
+obj
+obj_shared
+lib
+bin
+.cache
