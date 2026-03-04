@@ -95,6 +95,10 @@ int main(void) {
 
 And now `b` will recompute everytime any of the other signals updates.
 
+> The max number of dependents is 256, meaning that a signal can't be a
+> dependency of more than 256 unique compute signals. It's extremely rare
+> to reach 256 dependents, though.
+
 ## Build
 
 Using `make` automatically builds both static and shared library files at `lib`.
