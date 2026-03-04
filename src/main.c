@@ -3,11 +3,7 @@
 
 signal_t *x;
 
-signal_value_t compute_mul7(void) {
-  signal_value_t value;
-  value.i = x->value.i * 7;
-  return value;
-}
+signal_value_t compute_mul7(void) { return new_value_int(x->value.i * 7); }
 
 void print_sig_value(computed_signal_t *comp_signal) {
   if (comp_signal->type == SIGNAL_INT) {
