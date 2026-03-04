@@ -4,8 +4,24 @@
 #include <stdlib.h>
 #include <string.h>
 
+signal_value_t default_value(signal_type_t type) {
+  switch (type) {
+  case SIGNAL_INT:
+    return (signal_value_t){.i = 0};
+  case SIGNAL_FLOAT:
+    return (signal_value_t){.f = 0};
+  case SIGNAL_UINT:
+    return (signal_value_t){.ui = 0};
+  case SIGNAL_STR:
+    return (signal_value_t){.str = ""};
+  case SIGNAL_ULONG:
+    return (signal_value_t){.ul = 0};
+  }
+}
+
 signal_t *new_signal(signal_type_t type) {
   signal_t *signal = malloc(sizeof(signal_t));
+  signal->value = default_value(type);
   signal->type = type;
 
   signal->dependent_count = 0;
